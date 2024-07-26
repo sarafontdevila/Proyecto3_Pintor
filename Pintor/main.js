@@ -3,6 +3,7 @@ const ACCESS_KEY = import.meta.env.VITE_ACCESS_KEY
 
 document.getElementById('searchButton').addEventListener('click', fetchPhotos)
 
+let initialPhotos = null
 async function fetchPhotos() {
   const query = document.getElementById('searchInput').value
   const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=${ACCESS_KEY}&per_page=30`
@@ -12,13 +13,26 @@ async function fetchPhotos() {
     const data = await response.json()
     if (data.results.length === 0) {
       await fetchDefaultPhotos()
+      displayMessage('No results found. Showing default photos')
     } else {
       displayPhotos(data.results)
+      initialPhotos = data.results
     }
+    document.getElementById('searchInput').value = ''
   } catch (error) {
     console.error('Error fetching photos:', error)
   }
 }
+function displayMessage(message) {
+  const messageElement = document.createElement('p')
+  messageElement.textContent = message
+  messageElement.classList.add('message')
+  document.getElementById('imageResults').appendChild(messageElement)
+}
+
+document.getElementById('resetButton').addEventListener('click', () => {
+  fetchDefaultPhotos()
+})
 
 async function fetchDefaultPhotos() {
   const defaultQuery = 'house'
@@ -38,7 +52,7 @@ function displayPhotos(photos) {
 
   photos.forEach((photo) => {
     const img = document.createElement('img')
-    img.src = photo.urls.small
+    img.src = photo.urls.regular
     img.className = 'photo'
     img.style.width = 'auto'
     img.style.height = 'auto'

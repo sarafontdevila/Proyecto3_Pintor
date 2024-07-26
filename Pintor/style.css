@@ -6,11 +6,22 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 }
-
+html,
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
 }
 
 .container {
@@ -27,6 +38,7 @@ body {
   align-items: center;
   background-color: rgb(255, 253, 253);
 }
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -66,6 +78,33 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+#resetButton {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#resetButton:hover {
+  background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+#imageResults .message {
+  width: 100%;
+  height: 40%;
+  margin-left: 100px;
+}
+.message {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
 #imageResults {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -75,8 +114,14 @@ button {
   margin-top: 100px;
   justify-items: center;
   object-fit: contain;
+  height: 100%;
 }
+
 .photo {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
   width: auto;
   height: auto;
   object-fit: cover;
@@ -84,6 +129,7 @@ button {
   border-radius: 5%;
   cursor: pointer;
 }
+
 .photo:hover {
   transform: scale(1.5);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -94,6 +140,7 @@ footer {
   font-size: smaller;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 0 px;
   padding: 10px;
   background-color: #f1f1f1;
   flex-shrink: 0;
