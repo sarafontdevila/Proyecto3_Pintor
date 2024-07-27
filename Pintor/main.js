@@ -27,10 +27,18 @@ function displayMessage(message) {
   const messageElement = document.createElement('p')
   messageElement.textContent = message
   messageElement.classList.add('message')
-  document.getElementById('imageResults').appendChild(messageElement)
+  const header = document.querySelector('header')
+  header.appendChild(messageElement)
+}
+function removeMessage() {
+  const messageElement = document.querySelector('.message')
+  if (messageElement) {
+    messageElement.remove()
+  }
 }
 
 document.getElementById('resetButton').addEventListener('click', () => {
+  removeMessage()
   fetchDefaultPhotos()
 })
 

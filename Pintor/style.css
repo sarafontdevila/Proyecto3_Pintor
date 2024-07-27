@@ -12,23 +12,22 @@ body {
   padding: 0;
   height: 100%;
 }
-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .container {
   margin: 0 auto;
   padding: 20px;
   position: fixed;
-  top: 0;
+  /*top: 0;*/
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -92,28 +91,32 @@ button {
 }
 
 #resetButton:hover {
-  background-color: #45a049; /* Color de fondo al pasar el mouse */
+  background-color: #45a049;
 }
-#imageResults .message {
-  width: 100%;
-  height: 40%;
-  margin-left: 100px;
-}
+
 .message {
-  background-color: red;
-  color: white;
+  background-color: rgb(237, 150, 150);
+  color: rgb(44, 40, 40);
   padding: 10px;
   border-radius: 5px;
+  height: 40%;
+  width: 400px;
+  text-align: center;
+  margin-left: 200px;
+  margin-top: 100px;
+  margin-bottom: 0px;
 }
 #imageResults {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: 150px;
+  grid-auto-rows: 350px;
   grid-gap: 10px;
   gap: 5px;
   margin-top: 100px;
+  margin-bottom: 0px;
   justify-items: center;
   object-fit: contain;
+  align-items: center;
   height: 100%;
 }
 
@@ -140,14 +143,44 @@ footer {
   font-size: smaller;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 0 px;
+  margin-bottom: 10 px;
   padding: 10px;
   background-color: #f1f1f1;
   flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
 }
 @media screen and (max-width: 768px) {
   nav {
     display: none;
+  }
+  .container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+  .message {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    height: 100%;
+    font-size: small;
+    padding: 10px;
+    background-color: rgb(237, 150, 150);
+    color: black;
+    z-index: 1;
   }
   .search-input-container {
     padding: 10px;
@@ -156,6 +189,13 @@ footer {
     gap: 10px;
     flex-direction: column;
     justify-content: center;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  #searchInput {
+    margin-left: 0px;
+    width: 100%;
+    margin-right: 40px;
   }
   #imageResults {
     display: flex;
@@ -166,14 +206,9 @@ footer {
   }
 
   .photo {
-    display: flex;
-    justify-content: center;
     width: auto;
     height: auto;
     object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5%;
-    cursor: pointer;
   }
 
   footer {

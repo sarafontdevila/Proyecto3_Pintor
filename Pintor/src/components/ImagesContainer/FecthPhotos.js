@@ -1,4 +1,4 @@
-const ACCESS_KEY = import.meta.env.VITE_ACCESS_KEY
+/*const ACCESS_KEY = import.meta.env.VITE_ACCESS_KEY
 export async function fetchPhotos() {
   const query = document.getElementById('searchInput').value
   const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=${ACCESS_KEY}&per_page=30`
@@ -17,4 +17,4 @@ export async function fetchPhotos() {
   } catch (error) {
     console.error('Error fetching photos:', error)
   }
-}
+}*/
